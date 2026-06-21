@@ -1083,6 +1083,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1264834785}
   - component: {fileID: 1264834786}
+  - component: {fileID: 1264834787}
   m_Layer: 0
   m_Name: ProfitManager
   m_TagString: Untagged
@@ -1117,7 +1118,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e87512fa24bc519469afec6acee57ad5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerProfit: 0
+  playerProfit: 3
+  maxProfit: 10
+  uiPlayerProfit: {fileID: 1264834787}
+--- !u!114 &1264834787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1264834784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17bd025f023e2e6409b53617c4eaa906, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  profitBar: {fileID: 169535825}
+  currProfitText: {fileID: 323512606}
 --- !u!1 &1291980926
 GameObject:
   m_ObjectHideFlags: 0
