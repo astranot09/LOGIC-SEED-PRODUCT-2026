@@ -2,7 +2,8 @@ using UnityEngine;
 
 public class ProductionLogicScript : MonoBehaviour
 {
-    //Ambil Production SO
+    [Header("Production Data")]
+    [SerializeField] private ProductionSO productionData;
 
     [SerializeField] private float smokeWaste;
     [SerializeField] private float productionWaste;
@@ -58,11 +59,13 @@ public class ProductionLogicScript : MonoBehaviour
 
     public void SetUp()
     {
-        smokeWaste = 1f;
-        productionWaste = 1f;
-        profit = 1f;
-        maxTimer = 5f;
+        smokeWaste = productionData.smokeWaste;
+        productionWaste = productionData.productionWaste;
+        profit = productionData.profit;
+        maxTimer = productionData.duration;
+
         currTimer = maxTimer;
+
         ActivatedProduction();
     }
 
