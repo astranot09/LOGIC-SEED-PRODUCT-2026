@@ -3,7 +3,8 @@ using UnityEngine.UI;
 using TMPro;
 public class ItemScript : MonoBehaviour
 {
-    //productionSO
+    [Header("Data")]
+    [SerializeField] private ProductionSO productionSO;
 
     [Header("UI")]
     [SerializeField] private TMP_Text itemName;
@@ -11,15 +12,16 @@ public class ItemScript : MonoBehaviour
     [SerializeField] private TMP_Text itemPrice;
 
 
-    public void SetUp()
+    public void SetUp(ProductionSO productionSO)
     {
-        itemName.text = string.Empty;
-        iconImage.sprite = null;
-        itemPrice.text = string.Empty;
+        this.productionSO = productionSO;
+        itemName.text = productionSO.productionName;
+        iconImage.sprite = productionSO.sprite;
+        itemPrice.text = productionSO.productionPrice.ToString();
     }
 
     public void OpenDescription()
     {
-        ShopManager.instance.OpenDescription();
+        ShopManager.instance.OpenDescription(productionSO);
     }
 }

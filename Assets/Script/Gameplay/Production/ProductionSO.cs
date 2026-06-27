@@ -17,4 +17,6 @@ public class ProductionSO : ScriptableObject
 
     public int pollutionRate;
     public int profitRate;
+
+    public int productionPrice;
 }

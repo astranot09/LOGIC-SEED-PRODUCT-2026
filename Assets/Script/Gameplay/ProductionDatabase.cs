@@ -22,5 +22,6 @@ public class ProductionDatabase : MonoBehaviour
             Destroy(gameObject);
     }
     public List<ProductionData> productionData;
+    public List<ProductionSO> allProductionSO;
 
 }

@@ -4,6 +4,7 @@ public class ProductionLogicScript : MonoBehaviour
 {
     [Header("Production Data")]
     [SerializeField] private ProductionSO productionData;
+    public ProductionSO ProductionData => productionData;
 
     [SerializeField] private float smokeWaste;
     [SerializeField] private float productionWaste;
@@ -12,16 +13,13 @@ public class ProductionLogicScript : MonoBehaviour
     [SerializeField] private float maxTimer;
 
 
-    [SerializeField] private bool OnActivated;
+    [SerializeField] private bool onActivated;
+    public bool OnActivated => onActivated;
 
     [Header("Reference")]
     [SerializeField] private PlayerProfitScript profitScript;
 
 
-    private void Start()
-    {
-        SetUp();
-    }
 
 
     private void Update()
@@ -42,13 +40,13 @@ public class ProductionLogicScript : MonoBehaviour
 
     public void ActivatedProduction()
     {
-        OnActivated = true;
+        onActivated = true;
         currTimer = 5f;
     }
 
     public void DeactivatedProduction()
     {
-        OnActivated = false;
+        onActivated = false;
     }
     public void SuccessProduction()
     {
@@ -57,8 +55,9 @@ public class ProductionLogicScript : MonoBehaviour
         //productionWaste
     }
 
-    public void SetUp()
+    public void SetUp(ProductionSO productionSO)
     {
+        this.productionData = productionSO;
         smokeWaste = productionData.smokeWaste;
         productionWaste = productionData.productionWaste;
         profit = productionData.profit;
@@ -68,5 +67,4 @@ public class ProductionLogicScript : MonoBehaviour
 
         ActivatedProduction();
     }
-
 }
