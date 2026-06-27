@@ -23,6 +23,7 @@ public class UIChooseLandToBuild : MonoBehaviour
     {
         foreach (ProductionData data in ProductionDatabase.instance.productionData)
         {
+            data.productionBuildIcon.gameObject.SetActive(true);
             Debug.Log("pp");
             if (data.production.OnActivated)
                 data.productionBuildIcon.gameObject.SetActive(false);

@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ProductionLogicScript : MonoBehaviour
@@ -66,5 +67,11 @@ public class ProductionLogicScript : MonoBehaviour
         currTimer = maxTimer;
 
         ActivatedProduction();
+        StatusProductionScript.instance.UpdateStatusUI();
+    }
+
+    private void OnMouseDown()
+    {
+        StatusProductionScript.instance.OpenStatusProduction(this);
     }
 }
