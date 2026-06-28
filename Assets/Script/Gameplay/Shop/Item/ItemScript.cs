@@ -17,7 +17,7 @@ public class ItemScript : MonoBehaviour
         this.productionSO = productionSO;
         itemName.text = productionSO.productionName;
         iconImage.sprite = productionSO.sprite;
-        itemPrice.text = productionSO.productionPrice.ToString();
+        itemPrice.text = $"$ : {productionSO.productionPrice.ToString()}";
     }
 
     public void OpenDescription()

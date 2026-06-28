@@ -12,6 +12,6 @@ public class UIPlayerProfit : MonoBehaviour
     {
         profitBar.maxValue = maxProfit;
         profitBar.value = currProfit;
-        currProfitText.text = currProfit.ToString();
+        currProfitText.text = $"$ : {currProfit.ToString()}";
     }
 }

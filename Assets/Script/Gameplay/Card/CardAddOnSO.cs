@@ -1,5 +1,13 @@
 using UnityEngine;
 
+
+[System.Serializable]
+public enum AddOnType
+{
+    percentage,
+    flat
+}
+
 [CreateAssetMenu(fileName = "New Card Add On",
                  menuName = "Factory/Card Add On")]
 public class CardAddOnSO : ScriptableObject
@@ -13,6 +21,8 @@ public class CardAddOnSO : ScriptableObject
     public Sprite sprite;
 
     [Header("Effects")]
-    public float profitAddOn;
-    public float wasteAddOn;
+    public AddOnType profitType;
+    public float profitAddOnValue;
+    public AddOnType wasteType;
+    public float wasteAddOnValue;
 }
