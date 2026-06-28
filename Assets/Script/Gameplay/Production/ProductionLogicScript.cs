@@ -72,6 +72,8 @@ public class ProductionLogicScript : MonoBehaviour
 
     private void OnMouseDown()
     {
+        if(productionData == null) return;
+
         StatusProductionScript.instance.OpenStatusProduction(this);
     }
 }

@@ -28,7 +28,7 @@ public class PlayerProfitScript : MonoBehaviour
     }
 
 
-    private bool CheckProfit(float value)
+    public bool CheckProfit(float value)
     {
         if((playerProfit - value) < 0)
         {

@@ -41,6 +41,8 @@ public class ShopManager : MonoBehaviour
     [SerializeField] private ProductionSO productionCurr;
     public ProductionSO ProductionCurr => productionCurr;
 
+    [Header("Reference")]
+    [SerializeField] private PlayerProfitScript playerProfit;
     private void Start()
     {
         allItems.Clear();
@@ -107,11 +109,21 @@ public class ShopManager : MonoBehaviour
             profitRateSpawner.GetChild(i).gameObject.SetActive(true);
             //Instantiate(profitRatePrefab, profitRateSpawner);
         }
-
-        buildPanel.SetActive(true);
-        UIChooseLandToBuild.instance.SetUpUIToChoose();
+        PlayerCanBuild();
     }
 
+    public void PlayerCanBuild()
+    {
+        if (playerProfit.CheckProfit(ProductionCurr.productionPrice))
+        {
+            buildPanel.SetActive(true);
+            UIChooseLandToBuild.instance.SetUpUIToChoose();
+        }
+        else
+        {
+            buildPanel.SetActive(false);
+        }
+    }
 
     public void ResetShopDescription()
     {

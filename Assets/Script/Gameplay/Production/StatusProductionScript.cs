@@ -1,14 +1,15 @@
 using UnityEngine;
 using UnityEngine.UI;
-
+using TMPro;
 public class StatusProductionScript : MonoBehaviour
 {
 
     public static StatusProductionScript instance;
 
     [Header("UI")]
-    [SerializeField] private Image productIcon;
+    [SerializeField] private Image productionIcon;
     [SerializeField] private Image statusLight;
+    [SerializeField] private TMP_Text productionName;
 
     private void Awake()
     {
@@ -25,16 +26,23 @@ public class StatusProductionScript : MonoBehaviour
     {
         statusProductionPanel.SetActive(true);
         production = script;
-        if(productIcon.sprite != null)
-            productIcon.sprite = production.ProductionData.sprite;
+
+        if (production.ProductionData.sprite != null)
+            productionIcon.sprite = production.ProductionData.sprite;
+
+        if (production.ProductionData.productionName != null)
+            productionName.text = production.ProductionData.name;
+
+
         UpdateStatusUI();
+
     }
 
     public void UpdateStatusUI()
     {
+        if(production == null) return;
         if (production.OnActivated)
         {
-            // PERBAIKAN: Gunakan .color untuk mengubah warna, bukan .sprite
             statusLight.color = Color.green;
         }
         else

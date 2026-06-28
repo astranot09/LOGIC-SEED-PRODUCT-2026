@@ -14,11 +14,6 @@ public class UIChooseLandToBuild : MonoBehaviour
             Destroy(instance);
     }
 
-    private void Start()
-    {
-        SetUpUIToChoose();
-    }
-
     public void SetUpUIToChoose()
     {
         foreach (ProductionData data in ProductionDatabase.instance.productionData)

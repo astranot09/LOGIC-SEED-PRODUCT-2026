@@ -21,4 +21,4 @@ MonoBehaviour:
   duration: 4
   pollutionRate: 2
   profitRate: 3
-  productionPrice: 0
+  productionPrice: 8
