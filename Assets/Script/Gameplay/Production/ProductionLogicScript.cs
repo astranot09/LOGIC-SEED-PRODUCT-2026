@@ -17,11 +17,17 @@ public class ProductionLogicScript : MonoBehaviour
     [SerializeField] private bool onActivated;
     public bool OnActivated => onActivated;
 
+
+    private SpriteRenderer spriteRenderer;
+
     [Header("Reference")]
     [SerializeField] private PlayerProfitScript profitScript;
 
 
-
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+    }
 
     private void Update()
     {
@@ -63,7 +69,7 @@ public class ProductionLogicScript : MonoBehaviour
         productionWaste = productionData.productionWaste;
         profit = productionData.profit;
         maxTimer = productionData.duration;
-
+        spriteRenderer.sprite = productionData.sprite;
         currTimer = maxTimer;
 
         ActivatedProduction();
