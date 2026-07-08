@@ -12,7 +12,9 @@ GameObject:
   - component: {fileID: 6209422802851256240}
   - component: {fileID: 8799294401367667415}
   - component: {fileID: 2300046189326804680}
+  - component: {fileID: 7046113097005413879}
   - component: {fileID: 2386933187270198575}
+  - component: {fileID: 6393905933475123101}
   m_Layer: 5
   m_Name: ItemShopPrefab
   m_TagString: Untagged
@@ -96,6 +98,22 @@ MonoBehaviour:
   itemName: {fileID: 3260359243662198644}
   iconImage: {fileID: 1735099025857607273}
   itemPrice: {fileID: 707602933036037297}
+--- !u!114 &7046113097005413879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631928510921427580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ca7ff97cebf4124c96130e32561c135, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemID: 
+  itemIcon: {fileID: 0}
+  itemPrefab: {fileID: 2579089317900051918, guid: 2d30eae0b8195f84786a0765d53d85b4, type: 3}
+  itemShopScript: {fileID: 0}
 --- !u!114 &2386933187270198575
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -152,6 +170,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!225 &6393905933475123101
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631928510921427580}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2109351692093353910
 GameObject:
   m_ObjectHideFlags: 0
