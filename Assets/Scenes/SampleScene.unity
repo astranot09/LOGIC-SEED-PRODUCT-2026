@@ -703,7 +703,6 @@ GameObject:
   - component: {fileID: 106178709}
   - component: {fileID: 106178708}
   - component: {fileID: 106178711}
-  - component: {fileID: 106178712}
   m_Layer: 0
   m_Name: LahanKosong1 (3)
   m_TagString: Untagged
@@ -723,6 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91689573d9bd6ec49b490d8f8eeed12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentProductionSO: {fileID: 0}
   productionData: {fileID: 0}
   smokeWaste: 0
   productionWaste: 0
@@ -847,18 +847,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &106178712
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 106178707}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c494835072dd6b9449bd5bda581ce5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &106770559
 GameObject:
   m_ObjectHideFlags: 0
@@ -2797,7 +2785,6 @@ GameObject:
   - component: {fileID: 781399841}
   - component: {fileID: 781399840}
   - component: {fileID: 781399843}
-  - component: {fileID: 781399844}
   m_Layer: 0
   m_Name: LahanKosong1
   m_TagString: Untagged
@@ -2817,6 +2804,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91689573d9bd6ec49b490d8f8eeed12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentProductionSO: {fileID: 0}
   productionData: {fileID: 0}
   smokeWaste: 0
   productionWaste: 0
@@ -2941,18 +2929,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &781399844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 781399839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c494835072dd6b9449bd5bda581ce5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &852442661
 GameObject:
   m_ObjectHideFlags: 0
@@ -3431,7 +3407,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1133671739
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3877,7 +3853,6 @@ GameObject:
   - component: {fileID: 1288743425}
   - component: {fileID: 1288743424}
   - component: {fileID: 1288743427}
-  - component: {fileID: 1288743428}
   m_Layer: 0
   m_Name: LahanKosong1 (2)
   m_TagString: Untagged
@@ -3897,6 +3872,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91689573d9bd6ec49b490d8f8eeed12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentProductionSO: {fileID: 0}
   productionData: {fileID: 0}
   smokeWaste: 0
   productionWaste: 0
@@ -4021,18 +3997,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1288743428
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1288743423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c494835072dd6b9449bd5bda581ce5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1289659348
 GameObject:
   m_ObjectHideFlags: 0
@@ -5015,7 +4979,6 @@ GameObject:
   - component: {fileID: 1540476369}
   - component: {fileID: 1540476368}
   - component: {fileID: 1540476371}
-  - component: {fileID: 1540476372}
   m_Layer: 0
   m_Name: LahanKosong1 (1)
   m_TagString: Untagged
@@ -5035,6 +4998,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 91689573d9bd6ec49b490d8f8eeed12d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentProductionSO: {fileID: 0}
   productionData: {fileID: 0}
   smokeWaste: 0
   productionWaste: 0
@@ -5159,18 +5123,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &1540476372
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1540476367}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c494835072dd6b9449bd5bda581ce5b1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1578443661
 GameObject:
   m_ObjectHideFlags: 0

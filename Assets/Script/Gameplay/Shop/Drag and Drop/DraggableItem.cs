@@ -1,77 +1,82 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(CanvasGroup))]
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
     [Header("Data Item")]
-    public string itemID;
-    public Sprite itemIcon;
-    public GameObject itemPrefab; // prefab visual yang akan dipasang ke slot
+    [SerializeField] private ProductionSO productionSO;
 
-    private RectTransform rectTransform;
-    private CanvasGroup canvasGroup;
     private Canvas canvas;
-    private Transform originalParent;
-    private Vector2 originalAnchoredPos;
+    private RectTransform myRect;
 
-    [Header("Reference")]
-    [SerializeField] private ItemScript itemShopScript;
+    // Clone icon yang benar-benar di-drag (item asli di shop tidak disentuh sama sekali)
+    [Header("Clone")]
+    private RectTransform dragIconRect;
+    private CanvasGroup dragIconCanvasGroup;
 
     void Awake()
     {
-        rectTransform = GetComponent<RectTransform>();
-        canvasGroup = GetComponent<CanvasGroup>();
         canvas = GetComponentInParent<Canvas>();
+        myRect = GetComponent<RectTransform>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
     {
-        originalParent = transform.parent;
-        originalAnchoredPos = rectTransform.anchoredPosition;
+        if(productionSO.productionPrice > PlayerProfitScript.instance.PlayerProfit) return;
 
-        // Pindahkan ke root canvas supaya icon tampil paling atas & tidak menghalangi raycast-nya sendiri
-        transform.SetParent(canvas.transform, true);
-        transform.SetAsLastSibling();
+        // Buat GameObject baru sebagai "kloningan" icon untuk di-drag
+        GameObject dragIconObj = new GameObject("DragIcon(Clone)", typeof(RectTransform), typeof(CanvasGroup), typeof(Image));
+        dragIconObj.transform.SetParent(canvas.transform, false);
+        dragIconObj.transform.SetAsLastSibling();
 
-        canvasGroup.blocksRaycasts = false; // biar raycast bisa "tembus" ke bawah icon
+        Image img = dragIconObj.GetComponent<Image>();
+        img.sprite = productionSO.sprite;
+        img.raycastTarget = false; // penting: supaya tidak menghalangi raycast pas drop
+
+        dragIconRect = dragIconObj.GetComponent<RectTransform>();
+        dragIconRect.sizeDelta = myRect.sizeDelta; // samain ukuran sama icon asli
+        dragIconRect.position = eventData.position;
+
+        dragIconCanvasGroup = dragIconObj.GetComponent<CanvasGroup>();
+        dragIconCanvasGroup.alpha = 0.85f;
+        dragIconCanvasGroup.blocksRaycasts = false;
     }
 
     public void OnDrag(PointerEventData eventData)
     {
-        rectTransform.anchoredPosition += eventData.delta / canvas.scaleFactor;
+        if (dragIconRect != null)
+            dragIconRect.position = eventData.position;
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
-        canvasGroup.blocksRaycasts = true;
+        if (dragIconRect == null) return;
 
         // Konversi posisi mouse (screen space) ke posisi dunia 2D
         Vector2 worldPoint = Camera.main.ScreenToWorldPoint(eventData.position);
         Collider2D hit = Physics2D.OverlapPoint(worldPoint);
 
-        bool berhasilDipasang = false;
-
         if (hit != null)
         {
             DropSlot slot = hit.GetComponent<DropSlot>();
-            if (slot != null && slot.IsEmpty())
+            if (slot != null)
             {
-                slot.SetItem(itemID, itemIcon, itemPrefab);
-                berhasilDipasang = true;
+                slot.SetItem(productionSO);
             }
         }
 
-        if (berhasilDipasang)
+        // Clone selalu dihapus setelah drag selesai (berhasil ataupun tidak)
+        // Item asli di panel shop tidak pernah berubah/hilang
+        if (dragIconRect != null)
         {
-            // Item berhasil dipasang -> hapus icon dari shop
-            Destroy(gameObject);
+            Destroy(dragIconRect.gameObject);
+            dragIconRect = null;
         }
-        else
-        {
-            // Gagal (tidak kena slot / slot sudah terisi) -> kembalikan ke posisi semula
-            transform.SetParent(originalParent, true);
-            rectTransform.anchoredPosition = originalAnchoredPos;
-        }
+    }
+
+    public void SetUp(ProductionSO productionSO)
+    {
+        this.productionSO = productionSO;
     }
 }

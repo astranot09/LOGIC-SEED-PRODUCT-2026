@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class ProductionLogicScript : MonoBehaviour
+public class ProductionLogicScript : DropSlot
 {
     [Header("Production Data")]
     [SerializeField] private ProductionSO productionData;
@@ -48,7 +48,7 @@ public class ProductionLogicScript : MonoBehaviour
     public void ActivatedProduction()
     {
         onActivated = true;
-        currTimer = 5f;
+        currTimer = maxTimer;
     }
 
     public void DeactivatedProduction()
@@ -57,7 +57,7 @@ public class ProductionLogicScript : MonoBehaviour
     }
     public void SuccessProduction()
     {
-        currTimer = 5f;
+        currTimer = maxTimer;
         profitScript.AddProfit(CardManager.instance.FinalProfitCalculation(profit));
         //productionWaste
     }
@@ -75,6 +75,22 @@ public class ProductionLogicScript : MonoBehaviour
         ActivatedProduction();
         StatusProductionScript.instance.UpdateStatusUI();
     }
+
+    public override void SetItem(ProductionSO newProductionSO)
+    {
+        if (!OnActivated && newProductionSO != productionData)
+        {
+            PlayerProfitScript.instance.RemoveProfit(newProductionSO.profit);
+            base.SetItem(newProductionSO);
+            SetUp(newProductionSO);
+        }
+        else
+        {
+            Debug.Log("Penuh Atau Mesinnya Sama");
+        }
+    }
+
+
 
     private void OnMouseDown()
     {

@@ -3,8 +3,20 @@ using UnityEngine;
 
 public class PlayerProfitScript : MonoBehaviour
 {
-    [SerializeField] private float playerProfit;
 
+
+    public static PlayerProfitScript instance;
+
+    private void Awake()
+    {
+        if(instance == null)
+            instance = this;
+        else
+            Destroy(gameObject);
+    }
+
+    [SerializeField] private float playerProfit;
+    public float PlayerProfit => playerProfit;
 
     [Header("Max Profit Setting")]
     public float MaxProfit;

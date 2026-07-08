@@ -72,6 +72,7 @@ public class ShopManager : MonoBehaviour
         {
             GameObject x = Instantiate(shopPrefab, shopSpawner);
             x.GetComponent<ItemScript>().SetUp(item); //ntar isi SetUp tambah prouctionSO
+            x.GetComponent<DraggableItem>().SetUp(item);
         }
         ResetShopDescription();
     }
