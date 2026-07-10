@@ -58,8 +58,14 @@ public class ProductionLogicScript : DropSlot
     public void SuccessProduction()
     {
         currTimer = maxTimer;
-        profitScript.AddProfit(CardManager.instance.FinalProfitCalculation(profit));
-        //productionWaste
+
+        profitScript.AddProfit(
+            CardManager.instance.FinalProfitCalculation(profit)
+        );
+
+        WasteManager.Instance.AddWaste(
+            Mathf.RoundToInt(productionWaste)
+        );
     }
 
     public void SetUp(ProductionSO productionSO)

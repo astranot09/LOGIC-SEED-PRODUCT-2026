@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class WasteManager : MonoBehaviour
@@ -5,12 +6,16 @@ public class WasteManager : MonoBehaviour
     public static WasteManager Instance;
 
     [Header("Waste")]
-    public int currentWaste = 0;
-    public int maxWaste = 1000;
+    [SerializeField] private int currentWaste = 0;
+    [SerializeField] private int maxWaste = 1000;
+
+    public int CurrentWaste => currentWaste;
+    public int MaxWaste => maxWaste;
+
+    public event Action OnWasteChanged;
 
     private void Awake()
     {
-        // Singleton
         if (Instance == null)
         {
             Instance = this;
@@ -19,28 +24,25 @@ public class WasteManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-        currentWaste = 0;
     }
 
-    public void AddWaste(int wasteAdded)
+    public void AddWaste(int amount)
     {
-        currentWaste += wasteAdded;
+        currentWaste += amount;
+        currentWaste = Mathf.Clamp(currentWaste, 0, maxWaste);
 
-        if (currentWaste < 0)
-        {
-            currentWaste = 0;
-        }
+        OnWasteChanged?.Invoke();
 
-        if (currentWaste > maxWaste)
-        {
-            Debug.Log("Waste exceeded!");
-
-            //Go to lose scene
-        }
+        Debug.Log($"Waste: {currentWaste}/{maxWaste}");
     }
-    public int ViewWaste()
+
+    public void RemoveWaste(int amount)
     {
-        return currentWaste;
+        currentWaste -= amount;
+        currentWaste = Mathf.Clamp(currentWaste, 0, maxWaste);
+
+        OnWasteChanged?.Invoke();
+
+        Debug.Log($"Waste: {currentWaste}/{maxWaste}");
     }
 }
