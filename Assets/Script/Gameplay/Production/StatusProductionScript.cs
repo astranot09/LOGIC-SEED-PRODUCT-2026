@@ -44,10 +44,12 @@ public class StatusProductionScript : MonoBehaviour
         if (production.OnActivated)
         {
             statusLight.color = Color.green;
+            productionIcon.sprite = production.ProductionData.sprite;
         }
         else
         {
             statusLight.color = Color.red;
+            productionIcon.sprite = production.ProductionData.sprite;
         }
     }
 
