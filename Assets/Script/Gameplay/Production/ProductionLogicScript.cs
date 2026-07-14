@@ -1,3 +1,4 @@
+using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -20,6 +21,8 @@ public class ProductionLogicScript : DropSlot
 
     private SpriteRenderer spriteRenderer;
 
+    private Coroutine smokeCoroutine;
+
     [Header("Reference")]
     [SerializeField] private PlayerProfitScript profitScript;
 
@@ -33,8 +36,8 @@ public class ProductionLogicScript : DropSlot
     {
         if (OnActivated)
         {
-            //smokeWaste
-            if(currTimer > 0)
+
+            if (currTimer > 0)
             {
                 currTimer -= Time.deltaTime;
             }
@@ -49,11 +52,21 @@ public class ProductionLogicScript : DropSlot
     {
         onActivated = true;
         currTimer = maxTimer;
+        if (smokeCoroutine == null)
+        {
+            smokeCoroutine = StartCoroutine(SmokeWasteLoop());
+        }
     }
 
     public void DeactivatedProduction()
     {
         onActivated = false;
+
+        if (smokeCoroutine != null)
+        {
+            StopCoroutine(smokeCoroutine);
+            smokeCoroutine = null;
+        }
     }
     public void SuccessProduction()
     {
@@ -97,6 +110,19 @@ public class ProductionLogicScript : DropSlot
     }
 
 
+    private IEnumerator SmokeWasteLoop()
+    {
+        while (onActivated)
+        {
+            yield return new WaitForSeconds(1f);
+
+            if (WasteManager.Instance != null)
+            {
+                WasteManager.Instance.AddWaste(Mathf.RoundToInt(smokeWaste));
+            }
+        }
+        smokeCoroutine = null;
+    }
 
     private void OnMouseDown()
     {

@@ -19,6 +19,6 @@ MonoBehaviour:
   productionWaste: 1
   profit: 1
   duration: 4
-  pollutionRate: 2
+  pollutionRate: 11
   profitRate: 3
   productionPrice: 8

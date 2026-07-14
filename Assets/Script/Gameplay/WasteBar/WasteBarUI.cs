@@ -4,8 +4,7 @@ using UnityEngine.UI;
 public class WasteBarUI : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private Image barFilled;
-
+    [SerializeField] private Slider wasteSlider;
     private void Start()
     {
         if (WasteManager.Instance != null)
@@ -32,6 +31,8 @@ public class WasteBarUI : MonoBehaviour
         float currentWaste = WasteManager.Instance.CurrentWaste;
         float maxWaste = WasteManager.Instance.MaxWaste;
 
-        barFilled.fillAmount = currentWaste / maxWaste;
+        //barFilled.fillAmount = currentWaste / maxWaste;
+        wasteSlider.maxValue = maxWaste;
+        wasteSlider.value = currentWaste;
     }
 }

@@ -29,11 +29,16 @@ public class WasteManager : MonoBehaviour
     public void AddWaste(int amount)
     {
         currentWaste += amount;
-        currentWaste = Mathf.Clamp(currentWaste, 0, maxWaste);
+        //currentWaste = Mathf.Clamp(currentWaste, 0, maxWaste);
 
         OnWasteChanged?.Invoke();
 
         Debug.Log($"Waste: {currentWaste}/{maxWaste}");
+
+        if(currentWaste > maxWaste)
+        {
+            LoseScript.instance.PlayerLose();
+        }
     }
 
     public void RemoveWaste(int amount)
