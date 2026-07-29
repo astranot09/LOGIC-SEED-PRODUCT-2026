@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a516f2f912a294599f358101956235, type: 3}
   m_Name: ProductionType2
   m_EditorClassIdentifier: 
-  productionName: Tipe 2
+  productionName: Tipe Bad
   description: sadadadas
-  sprite: {fileID: -566567517, guid: 628a10472d031be42900f01cca85ee22, type: 3}
+  sprite: {fileID: -823824077620642096, guid: 33cef4d5604fb3d41b787e320b77d0ec, type: 3}
   smokeWaste: 1
   productionWaste: 1
   profit: 1

@@ -4,7 +4,7 @@ public class MainMenuManager : MonoBehaviour
 {
     public void PlayGame()
     {
-
+        SceneController.instance.GameplayScene();
     }
 
     public void OpenSettings()
@@ -19,12 +19,10 @@ public class MainMenuManager : MonoBehaviour
 
     public void ExitGame()
     {
-        Debug.Log(-1);
-
-//if UNITY_EDITOR
-//        UnityEditor.EditorApplication.isPlaying = false;
-//else
-//        Application.Quit();
-//endif
+        //if UNITY_EDITOR
+        //        UnityEditor.EditorApplication.isPlaying = false;
+        //else
+        Application.Quit();
+        //endif
     }
 }

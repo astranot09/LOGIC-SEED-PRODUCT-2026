@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: CardType 3
   description: sdadadada
-  sprite: {fileID: 0}
+  sprite: {fileID: -1157207527858181746, guid: 2620db5343b23774c8da4ffe370e7d56, type: 3}
   profitType: 0
   profitAddOnValue: 3
   wasteType: 0
