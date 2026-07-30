@@ -4,6 +4,9 @@ using UnityEngine.UI;
 
 public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
 {
+    [Header("Canvas Shop")]
+    [SerializeField] private CanvasGroup shopCanvasGroup;
+
     [Header("Data Item")]
     [SerializeField] private ProductionSO productionSO;
 
@@ -19,6 +22,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     {
         canvas = GetComponentInParent<Canvas>();
         myRect = GetComponent<RectTransform>();
+        shopCanvasGroup = GameObject.FindGameObjectWithTag("Shop").GetComponent<CanvasGroup>();
     }
 
     public void OnBeginDrag(PointerEventData eventData)
@@ -26,6 +30,7 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
         if(productionSO.productionPrice > PlayerProfitScript.instance.PlayerProfit) return;
 
         // Buat GameObject baru sebagai "kloningan" icon untuk di-drag
+        shopCanvasGroup.alpha = 0;
         GameObject dragIconObj = new GameObject("DragIcon(Clone)", typeof(RectTransform), typeof(CanvasGroup), typeof(Image));
         dragIconObj.transform.SetParent(canvas.transform, false);
         dragIconObj.transform.SetAsLastSibling();
@@ -46,11 +51,19 @@ public class DraggableItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEn
     public void OnDrag(PointerEventData eventData)
     {
         if (dragIconRect != null)
+        {
+            shopCanvasGroup.alpha = 0;
             dragIconRect.position = eventData.position;
+        }
+        else
+        {
+            shopCanvasGroup.alpha = 1;
+        }   
     }
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        shopCanvasGroup.alpha = 1;
         if (dragIconRect == null) return;
 
         // Konversi posisi mouse (screen space) ke posisi dunia 2D

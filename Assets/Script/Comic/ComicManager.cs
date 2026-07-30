@@ -6,6 +6,9 @@ using UnityEngine.InputSystem;
 
 public class ComicManager : MonoBehaviour
 {
+
+    [SerializeField] private float delayBeforeStartComic = 2f;
+
     [Header("Comic Panel Settings")]
     [SerializeField] private CanvasGroup allCanvas;
     [SerializeField] private List<GameObject> panelList;
@@ -37,7 +40,13 @@ public class ComicManager : MonoBehaviour
             }
         }
 
-        // 2. Mulai sekuens animasi komik
+        StartCoroutine(DelayBeforeShowComic());
+        
+    }
+
+    private IEnumerator DelayBeforeShowComic()
+    {
+        yield return new WaitForSeconds(delayBeforeStartComic);
         PlayComicSequence();
     }
 

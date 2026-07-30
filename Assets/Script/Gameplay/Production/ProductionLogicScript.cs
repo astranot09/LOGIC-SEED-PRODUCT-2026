@@ -1,4 +1,5 @@
 using System.Collections;
+using DG.Tweening;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -71,7 +72,7 @@ public class ProductionLogicScript : DropSlot
     public void SuccessProduction()
     {
         currTimer = maxTimer;
-
+        transform.DOPunchScale(Vector3.one * 0.3f, 0.3f, 1, 0.5f);
         profitScript.AddProfit(
             CardManager.instance.FinalProfitCalculation(profit)
         );
