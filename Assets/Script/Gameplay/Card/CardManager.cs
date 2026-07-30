@@ -51,6 +51,12 @@ public class CardManager : MonoBehaviour
         polutionMultiplier += x/100;
     }
 
+    private void RemovePolution(int x)
+    {
+        WasteManager.Instance.RemoveWaste(x);
+    }
+
+
     public void ChangeProfitIntoCard()
     {
         profitScript.RemoveProfit(profitScript.MaxProfit);
@@ -80,6 +86,7 @@ public class CardManager : MonoBehaviour
                 cardScript.SetUp(selectedCards[i]);
             }
         }
+        SoundManager.instance.PlaySFX(SoundManager.instance.cardSummon);
 
     }
 
@@ -119,6 +126,10 @@ public class CardManager : MonoBehaviour
         if(cardAddOnSO.wasteType == AddOnType.percentage)
         {
             AddPolutionMultiplier(cardAddOnSO.wasteAddOnValue);
+        }
+        if (cardAddOnSO.wasteType == AddOnType.flat)
+        {
+            RemovePolution((int)cardAddOnSO.wasteAddOnValue); 
         }
         if (cardAddOnSO.profitType == AddOnType.percentage)
         {

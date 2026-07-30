@@ -2108,6 +2108,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d493c530ba1cc7e40b6ec6500eb8d0d5, type: 2}
   - {fileID: 11400000, guid: 9656e6de7d69ca7458c464a88e51da44, type: 2}
   - {fileID: 11400000, guid: c5ffa78330fdc0c4c8dbcc17be0fd8f0, type: 2}
+  - {fileID: 11400000, guid: d6558b452c541e9488bfd6346ff7ae83, type: 2}
   cardSpawn: 3
   cardSpawnerPanel: {fileID: 1753742549}
   cardSpawner: {fileID: 1753742550}
@@ -3928,6 +3929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentWaste: 0
   maxWaste: 500
+  countdownRemoveWaste: 2
+  removeWasteValue: 1
 --- !u!1 &907553930
 GameObject:
   m_ObjectHideFlags: 0
@@ -5095,7 +5098,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -48.2, y: 0}
+  m_AnchoredPosition: {x: -48.19995, y: 0}
   m_SizeDelta: {x: 71.1647, y: 71.1647}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &1289659350

@@ -72,6 +72,7 @@ public class ProductionLogicScript : DropSlot
     public void SuccessProduction()
     {
         currTimer = maxTimer;
+        SoundManager.instance.PlaySFX(SoundManager.instance.successProduction);
         transform.DOPunchScale(Vector3.one * 0.3f, 0.3f, 1, 0.5f);
         profitScript.AddProfit(
             CardManager.instance.FinalProfitCalculation(profit)
@@ -85,6 +86,7 @@ public class ProductionLogicScript : DropSlot
     public void SetUp(ProductionSO productionSO)
     {
         this.productionData = productionSO;
+        SoundManager.instance.PlaySFX(SoundManager.instance.successBuy);
         smokeWaste = productionData.smokeWaste;
         productionWaste = productionData.productionWaste;
         profit = productionData.profit;

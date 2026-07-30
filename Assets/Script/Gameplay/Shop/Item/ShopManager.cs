@@ -53,12 +53,16 @@ public class ShopManager : MonoBehaviour
     }
 
     public void OpenShop()
-    {
+    {            
         shopPanel.SetActive(!shopPanel.activeSelf);
         if (!shopPanel.activeSelf)
         {
             //buildPanel.SetActive(false);
             productionCurr = null;
+        }
+        else
+        {
+            SoundManager.instance.PlaySFX(SoundManager.instance.openShop);
         }
 
         if (shopSpawner.childCount > 0)
