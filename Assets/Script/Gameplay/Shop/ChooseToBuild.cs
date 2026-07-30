@@ -12,7 +12,7 @@ public class ChooseToBuild : MonoBehaviour
 
         productionLogicScript.SetUp(ShopManager.instance.ProductionCurr);
         UIChooseLandToBuild.instance.SetUpUIToChoose();
-        playerProfit.RemoveProfit(productionLogicScript.ProductionData.productionPrice);
+        //playerProfit.RemoveProfit(productionLogicScript.ProductionData.productionPrice);
         ShopManager.instance.PlayerCanBuild();
     }
 

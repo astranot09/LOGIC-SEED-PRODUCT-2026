@@ -47,6 +47,7 @@ public class PlayerProfitScript : MonoBehaviour
     {
         if (CheckProfit(value))
         {
+            Debug.Log($"Testing {value}");
             playerProfit -= value;
             playerProfit = (float)Math.Round(playerProfit, 2);
             uiPlayerProfit.UpdatePlayerProfitUI(playerProfit, maxProfit);

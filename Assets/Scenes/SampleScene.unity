@@ -3914,7 +3914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentWaste: 0
-  maxWaste: 100
+  maxWaste: 500
 --- !u!1 &907553930
 GameObject:
   m_ObjectHideFlags: 0

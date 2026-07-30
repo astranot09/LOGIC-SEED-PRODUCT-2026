@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f2a516f2f912a294599f358101956235, type: 3}
-  m_Name: ProductionType1
+  m_Name: BadProduction
   m_EditorClassIdentifier: 
-  productionName: Tipe Good
+  productionName: Tipe Bad
   description: sadadadas
-  sprite: {fileID: 3095999757750237899, guid: 736b03bb4ff2d384f8170d7642444f1b, type: 3}
+  sprite: {fileID: -823824077620642096, guid: 33cef4d5604fb3d41b787e320b77d0ec, type: 3}
   smokeWaste: 1
-  productionWaste: 1
-  profit: 1
-  duration: 4
-  pollutionRate: 11
-  profitRate: 3
-  productionPrice: 8
+  productionWaste: 10
+  profit: 3
+  duration: 6
+  pollutionRate: 5
+  profitRate: 2
+  productionPrice: 1

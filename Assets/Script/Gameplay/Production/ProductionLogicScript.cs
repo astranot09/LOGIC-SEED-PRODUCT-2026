@@ -99,7 +99,7 @@ public class ProductionLogicScript : DropSlot
     {
         if (!OnActivated && newProductionSO != productionData)
         {
-            PlayerProfitScript.instance.RemoveProfit(newProductionSO.profit);
+            PlayerProfitScript.instance.RemoveProfit(newProductionSO.productionPrice);
             base.SetItem(newProductionSO);
             SetUp(newProductionSO);
         }
