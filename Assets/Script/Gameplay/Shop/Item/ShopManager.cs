@@ -57,7 +57,7 @@ public class ShopManager : MonoBehaviour
         shopPanel.SetActive(!shopPanel.activeSelf);
         if (!shopPanel.activeSelf)
         {
-            buildPanel.SetActive(false);
+            //buildPanel.SetActive(false);
             productionCurr = null;
         }
 
@@ -110,7 +110,7 @@ public class ShopManager : MonoBehaviour
             profitRateSpawner.GetChild(i).gameObject.SetActive(true);
             //Instantiate(profitRatePrefab, profitRateSpawner);
         }
-        PlayerCanBuild();
+        //PlayerCanBuild();
     }
 
     public void PlayerCanBuild()
