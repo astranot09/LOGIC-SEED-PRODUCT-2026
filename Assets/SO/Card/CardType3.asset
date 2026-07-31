@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0731bec307aa71d459afda09d6970e2e, type: 3}
   m_Name: CardType3
   m_EditorClassIdentifier: 
-  cardName: CardType 3
-  description: sdadadada
+  cardName: Manage
+  description: 'Do a monthly maintenance to ensure good working conditions.
+
+
+    Increase
+    profit by 35%  and increase waste gain by 20%'
   sprite: {fileID: -1157207527858181746, guid: 2620db5343b23774c8da4ffe370e7d56, type: 3}
   profitType: 0
-  profitAddOnValue: 3
+  profitAddOnValue: 35
   wasteType: 0
-  wasteAddOnValue: 0
+  wasteAddOnValue: 20

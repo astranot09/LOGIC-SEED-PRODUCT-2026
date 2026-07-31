@@ -30,10 +30,10 @@ public class CardManager : MonoBehaviour
     [Header("Reference")]
     [SerializeField] private PlayerProfitScript profitScript;
 
-    public float FinalPolutionCalculation(float x)
+    public int FinalPolutionCalculation(int x)
     {
         float calcu = x * polutionMultiplier;
-        return calcu;
+        return (int)calcu;
     }
     public float FinalProfitCalculation(float x)
     {
@@ -55,7 +55,10 @@ public class CardManager : MonoBehaviour
     {
         WasteManager.Instance.RemoveWaste(x);
     }
-
+    private void RemoveProfit(int x)
+    {
+        profitScript.RemoveProfit(x);
+    }
 
     public void ChangeProfitIntoCard()
     {
@@ -130,6 +133,10 @@ public class CardManager : MonoBehaviour
         if (cardAddOnSO.wasteType == AddOnType.flat)
         {
             RemovePolution((int)cardAddOnSO.wasteAddOnValue); 
+        }
+        if (cardAddOnSO.profitType == AddOnType.flat)
+        {
+            RemoveProfit((int)cardAddOnSO.profitAddOnValue);
         }
         if (cardAddOnSO.profitType == AddOnType.percentage)
         {

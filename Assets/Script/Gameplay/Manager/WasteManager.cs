@@ -38,7 +38,8 @@ public class WasteManager : MonoBehaviour
 
     public void AddWaste(int amount)
     {
-        currentWaste += amount;
+        int x = CardManager.instance.FinalPolutionCalculation(amount);
+        currentWaste += x;
         //currentWaste = Mathf.Clamp(currentWaste, 0, maxWaste);
 
         OnWasteChanged?.Invoke();

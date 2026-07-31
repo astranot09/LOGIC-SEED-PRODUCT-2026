@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a516f2f912a294599f358101956235, type: 3}
   m_Name: BadProduction
   m_EditorClassIdentifier: 
-  productionName: Tipe Bad
-  description: sadadadas
+  productionName: Coal Powered
+  description: A coal powered machine that releases smoke through out the area. Has
+    a cheap cost to buy and maintain, but has a high pollution rate
   sprite: {fileID: 3095999757750237899, guid: 736b03bb4ff2d384f8170d7642444f1b, type: 3}
   smokeWaste: 1
   productionWaste: 10

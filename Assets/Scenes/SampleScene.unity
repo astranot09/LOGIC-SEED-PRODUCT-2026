@@ -602,8 +602,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2108,7 +2108,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d493c530ba1cc7e40b6ec6500eb8d0d5, type: 2}
   - {fileID: 11400000, guid: 9656e6de7d69ca7458c464a88e51da44, type: 2}
   - {fileID: 11400000, guid: c5ffa78330fdc0c4c8dbcc17be0fd8f0, type: 2}
-  - {fileID: 11400000, guid: d6558b452c541e9488bfd6346ff7ae83, type: 2}
   cardSpawn: 3
   cardSpawnerPanel: {fileID: 1753742549}
   cardSpawner: {fileID: 1753742550}

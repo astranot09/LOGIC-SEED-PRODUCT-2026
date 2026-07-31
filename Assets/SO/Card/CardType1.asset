@@ -12,10 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0731bec307aa71d459afda09d6970e2e, type: 3}
   m_Name: CardType1
   m_EditorClassIdentifier: 
-  cardName: CardType 1
-  description: sdadadada
+  cardName: Capitalism
+  description: 'Secure maximum profit by producing in bulk and not sorting the materials
+    to not waste time and money.
+
+
+    Increase profit by 50% and increase waste
+    gain by 35%'
   sprite: {fileID: 4414844251144199901, guid: 944913f3f23eb754d8f4b62f63404bdb, type: 3}
   profitType: 0
-  profitAddOnValue: 0
+  profitAddOnValue: 50
   wasteType: 0
-  wasteAddOnValue: 0
+  wasteAddOnValue: 35

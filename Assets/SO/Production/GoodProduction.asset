@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2a516f2f912a294599f358101956235, type: 3}
   m_Name: GoodProduction
   m_EditorClassIdentifier: 
-  productionName: Tipe Good
-  description: sadadadas
+  productionName: Electric powered
+  description: An electric powered machine that runs on electricity, reducing pollution
+    in the area. Has an expensive cost to buy and maintain, but has lower pollution
+    rate
   sprite: {fileID: -823824077620642096, guid: 33cef4d5604fb3d41b787e320b77d0ec, type: 3}
   smokeWaste: 1
   productionWaste: 5
